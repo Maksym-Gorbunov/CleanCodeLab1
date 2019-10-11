@@ -25,7 +25,7 @@ public class AccountTest {
     assertThrows(AccountExceptions.NotAllowedAmountException.class, () -> {
       account.transfer(target, 2000);
     });
-  }
+  }//
 
   @Test
   public void transferCastAmountExceedsAllowedMaxException() throws Exception{
