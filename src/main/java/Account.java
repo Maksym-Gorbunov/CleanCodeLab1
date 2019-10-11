@@ -14,7 +14,6 @@ public class Account {
     this.rent = rent;
   }
 
-
   public double getBalance() {
     return balance;
   }
