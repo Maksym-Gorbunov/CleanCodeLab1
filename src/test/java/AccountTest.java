@@ -11,7 +11,15 @@ public class AccountTest {
 
   @Before
   public void init(){
-    account = new Account(1000);
+    account = new Account(1000, 5);
+  }
+
+  @Test
+  public void getBalance(){
+    double expected = 100;
+    Account a = new Account(expected, 5);
+    double actual = a.getBalance();
+    assertEquals(expected, actual,2);
   }
 
 

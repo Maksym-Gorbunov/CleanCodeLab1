@@ -9,4 +9,7 @@ public class Account {
   }
 
 
+  public double getBalance() {
+    return 2;
+  }
 }
