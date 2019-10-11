@@ -27,7 +27,7 @@ public class AccountTest {
     boolean transaction = account.transfer(target, amount);
     double expected = balance - amount;
     double actual = account.getBalance();
-    assertEquals(expected, actual, 0.01);
+    assertEquals(expected, actual, 0.01);//
   }
 
   @Test
