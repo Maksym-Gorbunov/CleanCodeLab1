@@ -19,7 +19,7 @@ public class AccountTest {
     double expected = 100;
     Account a = new Account(expected, 5);
     double actual = a.getBalance();
-    assertEquals(expected, actual,2);
+    assertEquals(expected, actual,.01);
   }
 
 

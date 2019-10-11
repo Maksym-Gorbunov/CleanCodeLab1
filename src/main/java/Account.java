@@ -10,6 +10,6 @@ public class Account {
 
 
   public double getBalance() {
-    return 2;
+    return balance;
   }
 }
