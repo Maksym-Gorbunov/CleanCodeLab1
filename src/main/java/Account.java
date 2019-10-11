@@ -40,8 +40,12 @@ public class Account {
     balance -= amount;
   }
 
-  public boolean transfer(Account target, int amount) throws Exception {
+  public boolean transfer(Account target, double amount) throws Exception {
+    if(target == null){
+      throw new NullPointerException();
+    }
     withdraw(amount);
+
     return true;
   }
 }

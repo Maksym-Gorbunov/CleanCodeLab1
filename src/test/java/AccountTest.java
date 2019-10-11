@@ -19,38 +19,46 @@ public class AccountTest {
 
 
   ///////////////////////////// Transfer ////////////////////////////////////////
+  @Test
+  public void transferSend() throws Exception {
+    Account target = new Account(0, 0);
+    double balance = account.getBalance();
+    double amount = 10;
+    boolean transaction = account.transfer(target, amount);
+    double expected = balance - amount;
+    double actual = account.getBalance();
+    assertEquals(expected, actual, 0.01);
+  }
 
   @Test
-  public void transferCastNullPointerException() throws Exception{
-    Account target = null;
+  public void transferCastNullPointerException() throws Exception {
     assertThrows(NullPointerException.class, () -> {
-      account.transfer(target, 100);
+      account.transfer(null, 100);
     });
   }
 
   @Test
-  public void transferCastNotAllowedAmountException() throws Exception{
-    Account target = new Account(0,0);
+  public void transferCastNotAllowedAmountException() throws Exception {
+    Account target = new Account(0, 0);
     assertThrows(AccountExceptions.NotAllowedAmountException.class, () -> {
       account.transfer(target, -1);
     });
   }
 
   @Test
-  public void transferCastAmountExceedsAllowedMaxException() throws Exception{
-    Account target = new Account(0,0);
+  public void transferCastAmountExceedsAllowedMaxException() throws Exception {
+    Account target = new Account(0, 0);
     assertThrows(AccountExceptions.AmountExceedsAllowedMaxException.class, () -> {
       account.transfer(target, 2000);
     });
   }
 
   @Test
-  public void transfer() throws Exception{
-    Account target = new Account(0,0);
+  public void transfer() throws Exception {
+    Account target = new Account(0, 0);
     boolean transaction = account.transfer(target, 10);
     assertEquals(true, transaction);
   }
-
 
   ///////////////////////////// Withdraw ////////////////////////////////////////
   @Test
@@ -114,6 +122,7 @@ public class AccountTest {
   }
 
   ///////////////////////////// Constructor ////////////////////////////////////////
+
   @Test
   public void constructor() {
     double expectedBalance = 1000;
