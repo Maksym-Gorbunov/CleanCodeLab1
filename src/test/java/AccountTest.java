@@ -19,6 +19,15 @@ public class AccountTest {
 
 
   ///////////////////////////// Transfer ////////////////////////////////////////
+
+  @Test
+  public void transferCastNullPointerException() throws Exception{
+    Account target = null;
+    assertThrows(NullPointerException.class, () -> {
+      account.transfer(target, 100);
+    });
+  }
+
   @Test
   public void transferCastNotAllowedAmountException() throws Exception{
     Account target = new Account(0,0);
