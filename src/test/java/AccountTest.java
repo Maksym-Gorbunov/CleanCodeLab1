@@ -7,5 +7,7 @@ import java.util.ConcurrentModificationException;
 import java.util.List;
 
 public class AccountTest {
+  private Account account;
+
 
 }
