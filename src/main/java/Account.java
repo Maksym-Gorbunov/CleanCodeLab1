@@ -31,6 +31,9 @@ public class Account {
   }
 
   public void withdraw(double amount) throws Exception {
+    if(amount > balance){
+      throw new AccountExceptions.AmountExceedsAllowedMaxException();
+    }
     if(amount <= 0){
       throw new AccountExceptions.NotAllowedAmountException();
     }

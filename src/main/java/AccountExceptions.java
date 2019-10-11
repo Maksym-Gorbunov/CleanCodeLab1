@@ -17,4 +17,13 @@ public class AccountExceptions {
       super("Amount value not valid, zero or below zero not allowed.");
     }
   }
+
+  public static class AmountExceedsAllowedMaxException extends Exception {
+    public AmountExceedsAllowedMaxException() {
+      super("Amount value not valid, amount value exceeds allowed maximum.");
+    }
+  }
+
+
+
 }

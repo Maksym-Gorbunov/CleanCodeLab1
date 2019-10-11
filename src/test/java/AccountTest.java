@@ -20,8 +20,8 @@ public class AccountTest {
 
   ///////////////////////////// Deposit ////////////////////////////////////////
   @Test
-  public void withdrawCastAmountExceedsAllowedException(){
-    assertThrows(AccountExceptions.NotAllowedAmountException.class, () -> {
+  public void withdrawCastAmountExceedsAllowedMaxException(){
+    assertThrows(AccountExceptions.AmountExceedsAllowedMaxException.class, () -> {
       account.withdraw(2000);
     });
   }
