@@ -17,15 +17,22 @@ public class AccountTest {
     account = new Account(1000, 5);
   }
 
-
   ///////////////////////////// Calculate Interest ////////////////////////////////////////
+
   @Test
-  public void calculateInterest(){
-    double interestRateExpected = account.getBalance() * (account.getRent()/100);   // 50
+  public void calculateInterestWithZeroValues() throws Exception {
+    account = new Account(0, 0);
+    double interestRateExpected = account.getBalance() * (account.getRent() / 100);   // 0
     double interestRateActual = account.calculateInterest();
     assertEquals(interestRateExpected, interestRateActual, 0.01);
   }
 
+  @Test
+  public void calculateInterest() throws Exception {
+    double interestRateExpected = account.getBalance() * (account.getRent() / 100);   // 50
+    double interestRateActual = account.calculateInterest();
+    assertEquals(interestRateExpected, interestRateActual, 0.01);
+  }
 
   ///////////////////////////// Transfer ////////////////////////////////////////
   @Test
