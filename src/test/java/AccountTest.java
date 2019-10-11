@@ -22,7 +22,8 @@ public class AccountTest {
   @Test
   public void calculateInterest(){
     double interestRateExpected = account.getBalance() * (account.getRent()/100);   // 50
-    double interestRateActual = account.calculateInterest();/
+    double interestRateActual = account.calculateInterest();
+    assertEquals(interestRateExpected, interestRateActual, 0.01);
   }
 
 

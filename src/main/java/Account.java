@@ -50,6 +50,7 @@ public class Account {
   }
 
   public double calculateInterest() {
-    return 2;
+    double interestRate = balance * (rent/100);
+    return interestRate;
   }
 }
