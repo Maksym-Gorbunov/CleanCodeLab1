@@ -18,6 +18,14 @@ public class AccountTest {
   }
 
 
+  ///////////////////////////// Calculate Interest ////////////////////////////////////////
+  @Test
+  public void calculateInterest(){
+    double interestRateExpected = account.getBalance() * (account.getRent()/100);   // 50
+    double interestRateActual = account.calculateInterest();
+  }
+
+
   ///////////////////////////// Transfer ////////////////////////////////////////
   @Test
   public void transferReceive() throws Exception {

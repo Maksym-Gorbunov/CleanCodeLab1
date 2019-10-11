@@ -45,7 +45,11 @@ public class Account {
       throw new NullPointerException();
     }
     withdraw(amount);
-
+    target.deposit(amount);
     return true;
+  }
+
+  public double calculateInterest() {
+    return 2;
   }
 }
