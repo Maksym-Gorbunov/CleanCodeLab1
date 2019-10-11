@@ -12,4 +12,9 @@ public class AccountExceptions {
     }
   }
 
+  public static class NotAllowedAmountException extends Exception {
+    public NotAllowedAmountException() {
+      super("Amount value not valid, zero or below zero not allowed.");
+    }
+  }
 }

@@ -23,7 +23,10 @@ public class Account {
     return rent;
   }
 
-  public void deposit(double amount) {
-    balance += amount;//
+  public void deposit(double amount) throws Exception {
+    if(amount <= 0){
+      throw new AccountExceptions.NotAllowedAmountException();
+    }
+    balance += amount;
   }
 }

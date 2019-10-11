@@ -21,14 +21,14 @@ public class AccountTest {
   ///////////////////////////// Depopsit ////////////////////////////////////////
   @Test
   public void depositCastNotAllowedAmountException(){
-    double amount = -50;
-    assertThrows(Exception.class, () -> {
-      account.deposit(amount);
+    assertThrows(AccountExceptions.NotAllowedAmountException.class, () -> {
+      account.deposit(-50);
+      account.deposit(0);
     });
   }
 
   @Test
-  public void deposit(){
+  public void deposit() throws Exception {
     double amount = 50;
     double balance = account.getBalance();
     double expected = amount + balance;
