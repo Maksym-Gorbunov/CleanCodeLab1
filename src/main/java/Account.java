@@ -12,4 +12,8 @@ public class Account {
   public double getBalance() {
     return balance;
   }
+
+  public double getRent() {
+    return rent;
+  }
 }
