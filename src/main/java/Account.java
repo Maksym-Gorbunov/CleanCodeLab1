@@ -22,4 +22,8 @@ public class Account {
   public double getRent() {
     return rent;
   }
+
+  public void deposit(double amount) {
+
+  }
 }
