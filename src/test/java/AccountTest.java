@@ -20,6 +20,14 @@ public class AccountTest {
 
   ///////////////////////////// Transfer ////////////////////////////////////////
   @Test
+  public void transferCastAmountExceedsAllowedMaxException() throws Exception{
+    Account recipient = new Account(0,0);
+    assertThrows(AccountExceptions.AmountExceedsAllowedMaxException.class, () -> {
+      account.transfer(recipient, 2000);
+    });
+  }
+
+  @Test
   public void transfer() throws Exception{
     Account recipient = new Account(0,0);
     boolean transaction = account.transfer(recipient, 10);

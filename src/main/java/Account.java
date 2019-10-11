@@ -41,6 +41,6 @@ public class Account {
   }
 
   public boolean transfer(Account recipient, int i) {
-    return false;
+    return true;
   }
 }
