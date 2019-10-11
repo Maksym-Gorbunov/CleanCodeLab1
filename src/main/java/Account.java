@@ -5,7 +5,10 @@ public class Account {
 
   public Account(double balance, double rent) throws Exception {
     if (balance < 0) {
-      throw new AccountException.UnsuportedBalanceException();
+      throw new AccountExceptions.NegativeBalanceException();
+    }
+    if(rent < 0) {
+      throw new AccountExceptions.NegativeRentException();
     }
     this.balance = balance;
     this.rent = rent;

@@ -41,13 +41,18 @@ public class AccountTest {
   }
 
   @Test
-  public void constructorCastExceptionIfBalanceIsZero(){
+  public void constructorCastNegativBalanceException(){
     assertThrows(Exception.class, () -> {
       account = new Account(-1, 5);
     });
   }
 
-
+  @Test
+  public void constructorCastNegativRentException(){
+    assertThrows(Exception.class, () -> {
+      account = new Account(1000, -5);
+    });
+  }
 
 
 }
