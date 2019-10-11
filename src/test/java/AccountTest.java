@@ -12,7 +12,7 @@ public class AccountTest {
   private Account account;
 
   @Before
-  public void init(){
+  public void init() throws Exception {
     account = new Account(1000, 5);
   }
 
@@ -42,8 +42,8 @@ public class AccountTest {
 
   @Test
   public void constructorCastExceptionIfBalanceIsZero(){
-    assertThrows(NullPointerException.class, () -> {
-      account = new Account(0, 5);
+    assertThrows(Exception.class, () -> {
+      account = new Account(-1, 5);
     });
   }
 
