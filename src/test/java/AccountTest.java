@@ -18,16 +18,25 @@ public class AccountTest {
   }
 
 
-  ///////////////////////////// Deposit ////////////////////////////////////////
+  ///////////////////////////// Transfer ////////////////////////////////////////
   @Test
-  public void withdrawCastAmountExceedsAllowedMaxException(){
+  public void transfer() throws Exception{
+    Account recipient = new Account(0,0);
+    boolean transaction = account.transfer(recipient, 10);
+    assertEquals(true, transaction);
+  }
+
+
+  ///////////////////////////// Withdraw ////////////////////////////////////////
+  @Test
+  public void withdrawCastAmountExceedsAllowedMaxException() {
     assertThrows(AccountExceptions.AmountExceedsAllowedMaxException.class, () -> {
       account.withdraw(2000);
     });
   }
 
   @Test
-  public void withdrawCastNotAllowedAmountException(){
+  public void withdrawCastNotAllowedAmountException() {
     assertThrows(AccountExceptions.NotAllowedAmountException.class, () -> {
       account.withdraw(-50);
       account.withdraw(0);
@@ -35,7 +44,7 @@ public class AccountTest {
   }
 
   @Test
-  public void withdraw() throws Exception{
+  public void withdraw() throws Exception {
     double amount = 50;
     double balance = account.getBalance();
     double expected = balance - amount;
@@ -46,7 +55,7 @@ public class AccountTest {
 
   ///////////////////////////// Deposit ////////////////////////////////////////
   @Test
-  public void depositCastNotAllowedAmountException(){
+  public void depositCastNotAllowedAmountException() {
     assertThrows(AccountExceptions.NotAllowedAmountException.class, () -> {
       account.deposit(-50);
       account.deposit(0);

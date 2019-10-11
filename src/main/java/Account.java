@@ -39,4 +39,8 @@ public class Account {
     }
     balance -= amount;
   }
+
+  public boolean transfer(Account recipient, int i) {
+    return false;
+  }
 }
