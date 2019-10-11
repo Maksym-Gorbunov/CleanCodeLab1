@@ -23,7 +23,7 @@ public class AccountTest {
   public void transferCastAmountExceedsAllowedMaxException() throws Exception{
     Account recipient = new Account(0,0);
     assertThrows(AccountExceptions.AmountExceedsAllowedMaxException.class, () -> {
-      account.transfer(recipient, 2000);
+      account.transfer(recipient, 2000);//
     });
   }
 
