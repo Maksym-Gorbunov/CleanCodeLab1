@@ -20,17 +20,25 @@ public class AccountTest {
 
   ///////////////////////////// Transfer ////////////////////////////////////////
   @Test
+  public void transferCastNotAllowedAmountException() throws Exception{
+    Account target = new Account(0,0);
+    assertThrows(AccountExceptions.NotAllowedAmountException.class, () -> {
+      account.transfer(target, 2000);
+    });
+  }
+
+  @Test
   public void transferCastAmountExceedsAllowedMaxException() throws Exception{
-    Account recipient = new Account(0,0);
+    Account target = new Account(0,0);
     assertThrows(AccountExceptions.AmountExceedsAllowedMaxException.class, () -> {
-      account.transfer(recipient, 2000);//
+      account.transfer(target, 2000);
     });
   }
 
   @Test
   public void transfer() throws Exception{
-    Account recipient = new Account(0,0);
-    boolean transaction = account.transfer(recipient, 10);
+    Account target = new Account(0,0);
+    boolean transaction = account.transfer(target, 10);
     assertEquals(true, transaction);
   }
 

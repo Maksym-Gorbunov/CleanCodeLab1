@@ -40,7 +40,10 @@ public class Account {
     balance -= amount;
   }
 
-  public boolean transfer(Account recipient, int i) {
+  public boolean transfer(Account target, int amount) throws Exception {
+    if(amount > balance){
+      throw new AccountExceptions.AmountExceedsAllowedMaxException();
+    }
     return true;
   }
 }
