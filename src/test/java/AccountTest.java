@@ -20,6 +20,17 @@ public class AccountTest {
 
   ///////////////////////////// Transfer ////////////////////////////////////////
   @Test
+  public void transferReceive() throws Exception {
+    Account target = new Account(0, 0);
+    double balance = target.getBalance();
+    double amount = 10;
+    boolean transaction = account.transfer(target, amount);
+    double expected = balance + amount;
+    double actual = target.getBalance();
+    assertEquals(expected, actual, 0.01);
+  }
+
+  @Test
   public void transferSend() throws Exception {
     Account target = new Account(0, 0);
     double balance = account.getBalance();
