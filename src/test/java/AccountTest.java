@@ -19,9 +19,23 @@ public class AccountTest {
 
 
   ///////////////////////////// Deposit ////////////////////////////////////////
+  @Test
+  public void withdrawCastAmountExceedsAllowedException(){
+    assertThrows(AccountExceptions.NotAllowedAmountException.class, () -> {
+      account.withdraw(2000);
+    });
+  }
 
   @Test
-  public void withdraw(){
+  public void withdrawCastNotAllowedAmountException(){
+    assertThrows(AccountExceptions.NotAllowedAmountException.class, () -> {
+      account.withdraw(-50);
+      account.withdraw(0);
+    });
+  }
+
+  @Test
+  public void withdraw() throws Exception{
     double amount = 50;
     double balance = account.getBalance();
     double expected = balance - amount;

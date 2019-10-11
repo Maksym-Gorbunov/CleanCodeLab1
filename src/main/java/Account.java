@@ -30,7 +30,10 @@ public class Account {
     balance += amount;
   }
 
-  public void withdraw(double amount) {
-
+  public void withdraw(double amount) throws Exception {
+    if(amount <= 0){
+      throw new AccountExceptions.NotAllowedAmountException();
+    }
+    balance -= amount;
   }
 }
