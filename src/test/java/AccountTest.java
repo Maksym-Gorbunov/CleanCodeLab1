@@ -9,5 +9,10 @@ import java.util.List;
 public class AccountTest {
   private Account account;
 
+  @Before
+  public void init(){
+    account = new Account(1000);
+  }
+
 
 }
