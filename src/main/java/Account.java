@@ -41,9 +41,7 @@ public class Account {
   }
 
   public boolean transfer(Account target, int amount) throws Exception {
-    if(amount > balance){
-      throw new AccountExceptions.AmountExceedsAllowedMaxException();
-    }
+    withdraw(amount);
     return true;
   }
 }
