@@ -1,15 +1,10 @@
 import org.junit.Before;
 import org.junit.Test;
-
 import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.ConcurrentModificationException;
-import java.util.List;
-
 public class AccountTest {
+
   private Account account;
 
   @Before
@@ -18,15 +13,13 @@ public class AccountTest {
   }
 
   ///////////////////////////// Calculate Interest ////////////////////////////////////////
-
   @Test
   public void calculateInterestWithZeroValues() throws Exception {
     account = new Account(0, 0);
     double interestRateExpected = account.getBalance() * (account.getRent() / 100);   // 0
     double interestRateActual = account.calculateInterest();
-    assertEquals(interestRateExpected, interestRateActual, 0.01);/
+    assertEquals(interestRateExpected, interestRateActual, 0.01);
   }
-
   @Test
   public void calculateInterest() throws Exception {
     double interestRateExpected = account.getBalance() * (account.getRent() / 100);   // 50
@@ -45,7 +38,6 @@ public class AccountTest {
     double actual = target.getBalance();
     assertEquals(expected, actual, 0.01);
   }
-
   @Test
   public void transferSend() throws Exception {
     Account target = new Account(0, 0);
@@ -56,14 +48,12 @@ public class AccountTest {
     double actual = account.getBalance();
     assertEquals(expected, actual, 0.01);
   }
-
   @Test
   public void transferCastNullPointerException() throws Exception {
     assertThrows(NullPointerException.class, () -> {
       account.transfer(null, 100);
     });
   }
-
   @Test
   public void transferCastNotAllowedAmountException() throws Exception {
     Account target = new Account(0, 0);
@@ -71,7 +61,6 @@ public class AccountTest {
       account.transfer(target, -1);
     });
   }
-
   @Test
   public void transferCastAmountExceedsAllowedMaxException() throws Exception {
     Account target = new Account(0, 0);
@@ -79,7 +68,6 @@ public class AccountTest {
       account.transfer(target, 2000);
     });
   }
-
   @Test
   public void transfer() throws Exception {
     Account target = new Account(0, 0);
@@ -94,7 +82,6 @@ public class AccountTest {
       account.withdraw(2000);
     });
   }
-
   @Test
   public void withdrawCastNotAllowedAmountException() {
     assertThrows(AccountExceptions.NotAllowedAmountException.class, () -> {
@@ -102,7 +89,6 @@ public class AccountTest {
       account.withdraw(0);
     });
   }
-
   @Test
   public void withdraw() throws Exception {
     double amount = 50;
@@ -121,7 +107,6 @@ public class AccountTest {
       account.deposit(0);
     });
   }
-
   @Test
   public void deposit() throws Exception {
     double amount = 50;
@@ -133,14 +118,12 @@ public class AccountTest {
   }
 
   ///////////////////////////// Getters ////////////////////////////////////////
-
   @Test
   public void getBalance() {
     double expected = 1000;
     double actual = account.getBalance();
     assertEquals(expected, actual, 0.01);
   }
-
   @Test
   public void getRent() {
     double expected = 5;
@@ -149,7 +132,6 @@ public class AccountTest {
   }
 
   ///////////////////////////// Constructor ////////////////////////////////////////
-
   @Test
   public void constructor() {
     double expectedBalance = 1000;
@@ -159,18 +141,17 @@ public class AccountTest {
     assertEquals(expectedBalance, actualBalance, 0.01);
     assertEquals(expectedRent, actualRent, 0.01);
   }
-
   @Test
   public void constructorCastNegativeBalanceException() {
     assertThrows(Exception.class, () -> {
       account = new Account(-1, 5);
     });
   }
-
   @Test
   public void constructorCastNegativeRentException() {
     assertThrows(Exception.class, () -> {
       account = new Account(1000, -5);
     });
   }
+
 }
