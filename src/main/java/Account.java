@@ -1,3 +1,5 @@
+// https://github.com/Maksym-Gorbunov/CleanCode_1
+
 public class Account {
 
   private double balance;
